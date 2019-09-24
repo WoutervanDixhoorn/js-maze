@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/WoutervanDixhoorn/Javascript-Maze/issues"
   },
-  "homepage": "https://github.com/WoutervanDixhoorn/Javascript-Maze#readme",
+  "homepage": "https://woutervandixhoorn.github.io/js-maze",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "webpack": "^4.40.2",
