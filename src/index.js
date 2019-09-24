@@ -1,7 +1,12 @@
 //Set canvas to fit screen
 var canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+
+//Calculate width and height of canvas
+canWidth = window.innerWidth;
+canHeight = window.innerHeight - document.querySelector('header').offsetHeight;
+
+canvas.width = canWidth;
+canvas.height = canHeight;
 
 //Global vars
 var c = canvas.getContext('2d');
@@ -22,7 +27,7 @@ var delta;
 
 //Initialize variables, etc.
 function init(){
-    cols = Math.floor(innerHeight/size);
+    cols = Math.floor(canHeight/size);
     rows = cols;
 
     for(j = 0; j < rows; j++){
@@ -46,8 +51,8 @@ function Cell(i,j){
     this.visited = false;
 
     this.show = function (){
-        var offsetx = (window.innerWidth/2 - (cols*size)/2);
-        var offsety = window.innerHeight/2 - (cols*size)/2;
+        var offsetx = (canWidth/2 - (cols*size)/2);
+        var offsety = canHeight/2 - (cols*size)/2;
         var x = Math.floor((this.i*size) + offsetx);
         var y = Math.floor((this.j*size) + offsety);
 
@@ -152,7 +157,7 @@ function index(i,j){
 
 //Rendering on screen
 function draw(){
-    c.clearRect(0,0,window.innerWidth,window.innerHeight);
+    c.clearRect(0,0,canWidth,canHeight);
 
     grid.forEach(function (element){
         element.show();
