@@ -12,6 +12,7 @@
           <nav>
             <ul>
               <li><a href="#depth">Start Depth-first search</a></li>
+              <li><a class="click" id="pause">Pause</a></li>
               <li><a href="#empty">Reset</a></li>
             </ul>
           </nav>
@@ -34,8 +35,10 @@
       });
 
       $("a").click(function(){
+        if(this.innerHTML != "Pause" && this.innerHTML != "Unpause"){
         window.location.href = this.href;
         window.location.reload();
+      }
       });
     </script>
 

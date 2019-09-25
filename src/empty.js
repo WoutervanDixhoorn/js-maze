@@ -72,6 +72,5 @@ function loop(){
     window.requestAnimationFrame(loop);
     // if enough time has elapsed, draw the next frame
     draw();
-    update();
 }
 loop();

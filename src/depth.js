@@ -18,12 +18,15 @@ var current;
 
 var stack = [];
 
+
 //FPS
 var fps = 1000;
 var now;
 var then = Date.now();
 var interval = 1000/fps;
 var delta;
+
+var pause = false;
 
 //Initialize variables, etc.
 function init(){
@@ -189,13 +192,39 @@ function loop(){
 
     now = Date.now();
     delta = now - then;
-    if (delta > interval) {
+    if (delta > interval && !pause) {
         then = now - (delta % interval);
         draw();
         update();
     }
+
 }
 loop();
 
+//#region funtions
 
+document.addEventListener('click', function (event) {
+
+    // If the clicked element doesn't have the right selector, bail
+    ///console.log("Click");
+	if (!event.target.matches('.click')) return;
+
+    // Don't follow the link
+    event.preventDefault(); 
+
+    var target = event.target || event.srcElement;
+
+    // Log the clicked element in th    e console
+    if(target.innerHTML == "Pause"){
+        pause = true;
+        target.innerHTML = "Unpause";
+    }else if(target.innerHTML == "Unpause"){
+        pause = false;
+        target.innerHTML = "Pause";
+    }
+
+
+}, false);
+
+//#endregion
 
