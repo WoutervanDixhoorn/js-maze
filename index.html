@@ -4,22 +4,36 @@
     <title>Maze Generation</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="style.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
  </head>
  <body>
     <header>
         <div class="container">
           <nav>
             <ul>
-              <li><a href="#">Depth-first search</a></li>
-              <li><a href="#">Randomized Kruskal's algorithm</a></li>
+              <li><a href="#depth">Depth-first search</a></li>
+              
+              <li><a href="#" onclick="location.reload()">Reload</a></li>
             </ul>
           </nav>
         </div>
       </header>
 
     <canvas></canvas>
-    <script src="bundle.js"></script>
 
+    <!--Change script by ip-->
+    <script>
+      //Get current script
+      var script = "empty"
+      if(location.href.split('#')[1] == "depth"){
+        script = "depth"
+      }
+      //load it
+      $(document).ready(function() {
+        console.log(script + ".bundle.js");
+        $.getScript(script + ".bundle.js");
+      });
+    </script>
 
 
  </body>
