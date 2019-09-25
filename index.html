@@ -11,13 +11,12 @@
         <div class="container">
           <nav>
             <ul>
-              <li><a href="#depth">Depth-first search</a></li>
-              
-              <li><a href="#" onclick="location.reload()">Reload</a></li>
+              <li><a href="#depth">Start Depth-first search</a></li>
+              <li><a href="#empty">Reset</a></li>
             </ul>
           </nav>
         </div>
-        
+
       </header>
 
     <canvas></canvas>
@@ -25,14 +24,18 @@
     <!--Change script by ip-->
     <script>
       //Get current script
-      var script = "empty"
-      if(location.href.split('#')[1] == "depth"){
-        script = "depth"
+      var script = "empty";
+      if(window.location.hash){
+        script = window.location.hash.split('#')[1];
       }
       //load it
       $(document).ready(function() {
-        console.log(script + ".bundle.js");
         $.getScript(script + ".bundle.js");
+      });
+
+      $("a").click(function(){
+        window.location.href = this.href;
+        window.location.reload();
       });
     </script>
 
