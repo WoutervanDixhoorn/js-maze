@@ -25,6 +25,6 @@
     "@vue/cli": "^3.11.0",
     "gh-pages": "^2.1.1",
     "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.12"
   }
 }
